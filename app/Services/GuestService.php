@@ -48,7 +48,7 @@ class GuestService implements IGuestService
 
     private function getPhoneNumberForDB(PhoneNumber $phone): string
     {
-        return $phone->getCountryCode().$phone->getNationalNumber();
+        return '+'.$phone->getCountryCode().$phone->getNationalNumber();
     }
 
     private function getCountryForDB(?string $country, PhoneNumber $phone): string

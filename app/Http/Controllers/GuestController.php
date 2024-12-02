@@ -6,6 +6,7 @@ use App\Http\DTO\Guest\StoreGuest;
 use App\Http\DTO\Guest\UpdateGuest;
 use App\Http\Helpers\ResponseHelper;
 use App\Http\Requests\StoreGuestRequest;
+use App\Http\Requests\UpdateGuestRequest;
 use App\Http\Resources\GuestResource;
 use App\Models\Guest;
 use App\Services\IGuestService;
@@ -31,7 +32,7 @@ class GuestController extends Controller
         return ResponseHelper::success($response, Response::HTTP_CREATED);
     }
 
-    public function update(StoreGuestRequest $request, Guest $guest): JsonResponse
+    public function update(UpdateGuestRequest $request, Guest $guest): JsonResponse
     {
         $response = $this->guestService->update(
             $guest,
