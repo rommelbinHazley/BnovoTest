@@ -2,7 +2,10 @@
 
 SAIL_PATH = ./vendor/bin/sail
 
-all: build up composer migrate
+all: composer-start build up composer migrate
+
+composer-start:
+	composer install --ignore-platform-reqs
 
 up: build ## Поднять контейнеры
 	${SAIL_PATH} up -d
